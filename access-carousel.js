@@ -2,12 +2,12 @@
       constructor() {
         this.slider = document.getElementById('slider');
         this.items = [
-          { title: 'Osaka Castle', img: 'images/Access-carousel/im1.jpg' },
-          { title: 'Universal Studio Japan', img: 'images/Access-carousel/im2.jpg' },
-          { title: 'Dotonbori', img: 'images/Access-carousel/im3.jpg' },
-          { title: 'Kaiyukan', img: 'images/Access-carousel/im4.jpg' },
-          { title: 'Shinsekai', img: 'images/Access-carousel/im5.jpg' }, 
-          { title: 'Sky Building', img: 'images/Access-carousel/im6.jpg' }
+          { title: 'Osaka Castle', img: 'images/Access-Carousel/im1.jpg' },
+          { title: 'Universal Studio Japan', img: 'images/Access-Carousel/im2.jpg' },
+          { title: 'Dotonbori', img: 'images/Access-Carousel/im3.jpg' },
+          { title: 'Kaiyukan', img: 'images/Access-Carousel/im4.jpg' },
+          { title: 'Shinsekai', img: 'images/Access-Carousel/im5.jpg' }, 
+          { title: 'Sky Building', img: 'images/Access-Carousel/im6.jpg' }
 
         ];
 
