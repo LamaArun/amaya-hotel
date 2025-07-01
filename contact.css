@@ -1,0 +1,43 @@
+ :root {
+            --gold: #d3a43f;
+            --gold-light: #d4c28b;
+            --dark: #333333;
+            --cream: #f9f9f7;
+        }
+
+
+
+.contact-hero {
+  background: url("https://source.unsplash.com/1600x500/?luxury,hotel")
+    no-repeat center center/cover;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  padding: 100px 0;
+}
+.contact-form {
+  background: var(--cream); 
+  border-radius: 12px; 
+  padding: 30px;
+  box-shadow: 0 px 6px rgba(0, 0, 0, 0.2); 
+  border: 1px solid rgba(200, 200, 200, 0.6); 
+}
+
+.contact-items{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem; 
+  margin-bottom: 10px; 
+}
+
+.social-icons a {
+  font-size: 1.5rem;
+  color: #c59d5f;
+  margin-right: 15px;
+}
+
+
+.map-container {
+  border-radius: 15px;
+  overflow: hidden;
+}

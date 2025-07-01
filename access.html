@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amaya | Access</title>
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+    <script src="navbar-scroll.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+        <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+
+    <!-- Link your component's CSS file -->
+    <link rel="stylesheet" href="reservation-cta.css" />
+
+
+     <!-- Font used in  Logo Amaya Hotel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="carousel.css">
+
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      :root {
+            --gold: #d3a43f;
+            --gold-light: #d4c28b;
+            --dark: #333333;
+            --cream: #f1f1f0;
+        }
+
+      /* Initial state for all divs */
+      .fade-in {
+        opacity: 0; /* Start invisible */
+        transform: translateY(30px); 
+        transition: all 0.6s ease-in-out;      
+      }
+
+      /* When the element is visible */
+      .fade-in.visible {
+        opacity: 1; /* Fully visible */
+        transform: translateY(0); /* Move to original position */
+      }
+
+     .btn-contact:hover {
+        transform: scaleX(1.05);
+        color: black;
+        background-color: var(--btn-hover);
+      }
+
+      .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+  #mainNavbar {
+    transition: top 0.3s;
+  }
+
+  .navbar-nav .nav-link {
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s ease;
+  }
+
+  .navbar-nav .nav-link:hover {
+    border-bottom: 2px solid var(--gold);
+  }
+
+  .navbar-brand{
+    font-family: "Cinzel", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+   @media (max-width: 768px) {
+  .hero-bg,.hero-bg-img {
+    background-position: left !important;
+    height: 90vh !important;
+  }
+}
+
+
+  @font-face {
+      font-family: 'Elegist';
+      src: url('fonts/elegist/Elegist.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+
+     
+
+    </style>
+  </head>
+
+<body style="overflow-x: hidden">
+    <!-- NAV WRAPPER: Scroll-hiding container -->
+    <div
+      id="navWrapper"
+      style="
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1050;
+        transition: top 0.3s ease-in-out;
+      "
+    >
+      <!-- User Bar -->
+      <div
+        id="userBar"
+        class="text-light py-2 px-4 d-flex justify-content-end align-items-center w-100"
+        style="font-size: 0.9rem; border-bottom: 1px solid whitesmoke; background-color: #0b1215;"
+      >
+        <div class="d-flex align-items-center gap-4 p-1 px-3 border rounded-pill">
+          <i class="fas fa-user text-light "></i>
+          <a
+            href="login.html"
+            class="text-light text-decoration-none"
+            >サインイン / 入会</a
+          >
+          
+        </div>
+      </div>
+
+      <!-- Navbar -->
+      <nav id="mainNavbar" class="navbar navbar-expand-md bg-dark w-100">
+        <div class="container-fluid">
+          <a href="index.html" class="navbar-brand d-flex align-items-center gap-3">
+            <img src="images/logo.png" alt="Amaya Hotel Logo" style="height: 2rem; padding-left: 5px;" />
+            <span class="fs-3" style="color: white;">Amaya Hotel</span>
+          </a>
+
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#main-nav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div
+            class="collapse navbar-collapse justify-content-end align-center"
+            id="main-nav"
+          >
+            <ul class="navbar-nav gap-2 gap-md-4 p-1">
+              <li class="nav-item">
+                <a
+                  class="nav-link active text-light"
+                  aria-current="page"
+                  href="index.html"
+                  >ホーム</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-light" href="suites.html">宿泊プラン</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-light" href="access.html">アクセス</a>
+              </li>
+              <li class="nav-item d-md-none">
+                <a class="nav-link text-light" href="contact.html">Contact Us</a>
+              </li>
+              <li class="nav-item ms-2 d-none d-md-inline">
+                <a
+                  class="btn btn-contact rounded-pill px-3"
+                  href="contact.html"
+                  style="
+                    background-color: var(--gold);
+                    color: black;
+                    transition: transform 0.2s ease-in-out,
+                      background-color 0.15s ease-in-out;
+                  "
+                >
+                  Contact Us
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <!-- NAV WRAPPER: Scroll-hiding container end-->
+
+
+
+
+    <!------------------ Hero-section--------------------->
+    <section id="hero">
+    <div class="container-fluid  position-relative p-0 justify-content-center align-items-center hero-bg" style="height: 120vh; overflow: hidden;">
+
+      <!-- Fullscreen Image with Dark Overlay using Linear Gradient -->
+      <div class="w-100 h-100 position-absolute top-0 start-0 hero-bg-img"
+          style="background:  url('images/Hero/access-hero.jpg'); background-size: cover; background-position: center; border-image: fill 0 linear-gradient(rgba(114, 114, 114, 0.1), #000000cf);" >
+      </div>
+
+      <!-- Centered Content Overlay -->
+      <div class="position-relative d-none d-md-flex justify-content-center align-items-center text-light" style="height: 100vh;">
+        <div class="col-12 col-md-7 pt-md-5 d-flex flex-column align-items-center text-center fade-in">
+          <h1 class="display-3 text-center" style="font-family: 'Elegist', sans-serif;">
+            Find your way to <br> Amaya Hotel
+          </h1>
+        </div>
+      </div>
+
+      <!-- Contact Icon & Details Section overlay -->
+      <div class="position-absolute d-flex container-fluid text-white fade-in justify-content-center w-100"
+        style="bottom: 50px;  transition-delay: 0.3s;">
+        <div class="row g-4 g-md-5">
+
+          <!--Contact overlay item 1 (location)-->
+          <div class="col-12 col-md-4 align-items-center">
+            <div class="p-4 rounded-3" style="background: rgba(255, 255, 255, 0.2);">
+              <div class="mb-3" style="display: inline-block;">
+                <i
+                  class="fas fa-map-marker-alt"
+                  style="color: var(--gold)"
+                ></i>
+              </div>
+              <p class="mb-0 small">大阪府大阪市北区大深町4-20</p>
+              <p class="my-0 small">梅田駅より徒歩5分</p>
+            </div>
+          </div>
+
+          <!--Contact overlay item 2 (transportation)-->
+          <div class="col-12 col-md-4 align-items-center">
+            <div class="p-4 rounded-3" style="background: rgba(255, 255, 255, 0.2);">
+              <div class="mb-3" style="display: inline-block;">
+                <i class="fa-solid fa-bus" style="color: var(--gold)"></i>
+              </div>
+              <p class="mb-0 small">
+                電車、バス、車など、さまざまな交通手段で簡単に到着できます。
+              </p>
+            </div>
+          </div>
+
+          <!--Contact overlay item 3 (contact)-->
+          <div class="col-12 col-md-4 align-items-center">
+            <div class="p-4 rounded-3" style="background: rgba(255, 255, 255, 0.2);">
+              <div class="mb-3" style="display: inline-block;">
+                <i class="fas fa-phone " style="color: var(--gold)"></i>
+              </div>
+              <p class="mb-0 small">+81-6-1234-5678 (フロント)</p>
+              <p class="my-0 small">+81-6-1234-5679 (コールセンタ)</p>
+            </div>
+          </div>
+        </div>
+      </div>  <!-- Contact Icon & Details Section End-->
+    </div>
+    </section>
+    <!-------------- Hero Section End -------------------->
+
+    <!--reservation-cta -->
+    <div class="reservation-bar" id="reservation-bar">
+      <div class="row g-0 content-row">
+        <!-- Column 1: Dates -->
+        <div class="col-lg-4 form-group">
+          <div class="d-flex flex-column align-items-stretch w-100">
+            <div class="date-section pb-2 d-flex align-items-center">
+              <span class="date-label">チェックイン</span>
+              <div class="date-input-wrapper flex-grow-1 pe-3">
+                <input
+                  type="text"
+                  id="checkin-date"
+                  class="date-value text-end"
+                  readonly
+                />
+              </div>
+              <i
+                class="fa-regular fa-calendar-days calendar-icon"
+                id="checkin-icon"
+              ></i>
+            </div>
+            <div class="date-section d-flex align-items-center">
+              <span class="date-label">チェックアウト</span>
+              <div class="date-input-wrapper flex-grow-1 pe-3">
+                <input
+                  type="text"
+                  id="checkout-date"
+                  class="date-value text-end"
+                  readonly
+                />
+              </div>
+              <i
+                class="fa-regular fa-calendar-days calendar-icon"
+                id="checkout-icon"
+              ></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Other Columns: Adults, Children, Rooms... -->
+        <div class="col-lg-2 form-group">
+          <span class="counter-label">大人</span>
+          <div class="counter-controls">
+            <span class="counter-value" id="adults-count" data-min="1">1</span>
+            <div class="counter-buttons">
+              <button
+                class="counter-btn plus"
+                data-target="adults"
+                data-action="increment"
+              >
+                +</button
+              ><button
+                class="counter-btn minus"
+                data-target="adults"
+                data-action="decrement"
+              >
+                -
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 form-group">
+          <span class="counter-label">お子様</span>
+          <div class="counter-controls">
+            <span class="counter-value" id="children-count" data-min="0"
+              >0</span
+            >
+            <div class="counter-buttons">
+              <button
+                class="counter-btn plus"
+                data-target="children"
+                data-action="increment"
+              >
+                +</button
+              ><button
+                class="counter-btn minus"
+                data-target="children"
+                data-action="decrement"
+              >
+                -
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 form-group">
+          <span class="counter-label">客室</span>
+          <div class="counter-controls">
+            <span class="counter-value" id="rooms-count" data-min="1">1</span>
+            <div class="counter-buttons">
+              <button
+                class="counter-btn plus"
+                data-target="rooms"
+                data-action="increment"
+              >
+                +</button
+              ><button
+                class="counter-btn minus"
+                data-target="rooms"
+                data-action="decrement"
+              >
+                -
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 5: DESKTOP Search Button -->
+        <div class="col-lg-2 form-group search-button-group d-none d-lg-flex">
+          <button
+            class="btn btn-reserve reserve-btn-trigger"
+            id="reserve-btn-desktop"
+          >
+            予約する
+          </button>
+        </div>
+      </div>
+
+      <!-- MOBILE Search Button -->
+      <button
+        class="btn btn-reserve reserve-btn-trigger d-lg-none"
+        id="reserve-btn-mobile"
+      >
+        予約する
+      </button>
+    </div>
+
+    <!-- JavaScript Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ja.js"></script>
+    <!-- Link your component's JS file -->
+    <script src="reservation-cta.js"></script>
+
+
+
+
+    <!-- Map Section -->
+    <section id="map-section " class="py-5 my-5">
+      <div class="container-fluid px-4">
+        <div class="row align-items-center">
+          <!-- Text Section -->
+          <div class="col-md-6 mb-4 mb-md-0">
+            <h2 class="fw-bold mb-3">ホテルへのアクセス</h2>
+            <p class="mb-2">
+              <i
+                class="fas fa-map-marker-alt me-3"
+                style="color: var(--gold)"
+              ></i
+              >〒530-0001 大阪府大阪市北区梅田1丁目2-3日本
+            </p>
+            <p class="mb-2">
+              <i class="fas fa-phone me-2" style="color: var(--gold)"></i
+              >+81-6-1234-5678
+            </p>
+            <p class="mb-2">
+              <i
+                class="fa-solid fa-wheelchair me-2"
+                style="color: var(--gold)"
+              ></i
+              >車椅子対応
+            </p>
+          </div>
+
+          <!-- Map Section -->
+          <div class="col-md-6 fade-in">
+            <div
+              class="map-container"
+              style="height: 500px; width: 100%; filter: grayscale(100%)"
+            >
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.821935771578!2d139.69170631525942!3d35.689487424544336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cd1b3327a3f%3A0x3b2051cb021ab65c!2z5p2x5Lqs6YO95paw5a6_!5e0!3m2!1sja!2sjp!4v1616369073326!5m2!1sja!2sjp"
+                width="100%"
+                height="100%"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5" style="background-color: var(--cream);">
+      <div class="container-fluid px-4 py-5">
+        <div class="row ">
+          <div class="col-md-6">
+            <h6 class="fw-bold mb-2" style="color: var(--gold)">周辺情報</h6>
+            <h1 class="fw-bold mb-3">観光スポットと便利なアクセス</h1>
+            <p class="text-secondary mb-5">
+              ホテル周辺には、大阪城や道頓堀などの観光名所が多数あります。快適な滞在とともに観光を楽しむことができます。
+            </p>
+
+            <!-- 大阪城 -->
+            <div class="d-flex align-items-start mb-4">
+              <i
+                class="fas fa-landmark fa me-3 mt-1"
+                style="color: var(--gold)"
+              ></i>
+              <div>
+                <h6 class="fw-bold mb-1">大阪城</h6>
+                <p class="mb-0 text-secondary">
+                  歴史的な名所、大阪城まで徒歩圏内。
+                </p>
+              </div>
+            </div>
+
+            <!-- 道頓堀 -->
+            <div class="d-flex align-items-start mb-4">
+              <i
+                class="fas fa-utensils me-3 mt-1"
+                style="color: var(--gold)"
+              ></i>
+              <div>
+                <h6 class="fw-bold mb-1">道頓堀</h6>
+                <p class="mb-0 text-secondary">
+                  大阪の美食を楽しめる道頓堀まで簡単にアクセス可能。
+                </p>
+              </div>
+            </div>
+
+            <!-- ショッピング -->
+            <div class="d-flex align-items-start">
+              <i
+                class="fas fa-shopping-cart fa me-3 mt-1"
+                style="color: var(--gold)"
+              ></i>
+              <div>
+                <h6 class="fw-bold mb-1">ショッピング</h6>
+                <p class="mb-0 text-secondary">
+                  心斎橋や梅田でショッピングを満喫できます。
+                </p>
+              </div>
+            </div>
+          </div>
+              <!--   Image Column  -->
+          <div class="col-md-6">
+            <div class="image-frame">
+              <img 
+                src="images/tourism-spot.jpeg" 
+                class="img-fluid" 
+                alt="Scenic view near the hotel"
+              >
+            </div>
+          </div>
+          <!-- New Image Column End -->
+        </div>
+      </div>
+    </section>
+
+        <!---------------------------------------- Nearby Spot Card Section ----------------------------------------->
+    <div class="container py-5 ">
+      <h2 class="fw-bold fs-1 mb-5 ps-1"></h2>
+      
+      <div class="slider-container ">
+        <div class="slider-track " id="slider">
+          <!-- Slides will be dynamically generated -->
+        </div>
+        <button class="nav-btn prev"><i class="fas fa-chevron-left"></i></button>
+        <button class="nav-btn next"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </div>
+    <script src="access-carousel.js"></script>
+
+    <!------------------------------------- Nearby Spot Card Section End -------------------------------------->
+
+
+
+
+    <section class="py-5 my-4">
+      <div class="container-fluid px-4">
+        <h2 class="fw-bold mb-4 text-center">ホテルへの交通手段</h2>
+        <p class="text-center mb-5">
+          Amaya ホテルへの簡単なアクセス方法をご紹介します。
+        </p>
+
+        <div class="row g-4 my-3">
+          <!-- 電車 -->
+          <div class="col-md-6 col-lg-3">
+           <div class="bg-white p-4 rounded h-100" style="box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); border: 1px solid #ccc;">
+              <i
+                class="fas fa-train-subway fa mb-3"
+                style="color: var(--gold)"
+              ></i>
+              <h6 class="fw-bold">電車</h6>
+              <p class="text-secondary mb-0">
+                大阪駅・なんば最寄り駅から徒歩約5分。
+              </p>
+            </div>
+          </div>
+
+          <!-- バス -->
+          <div class="col-md-6 col-lg-3">
+            <div class="bg-white p-4 rounded h-100" style="box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); border: 1px solid #ccc;">
+              <i class="fas fa-bus fa mb-3" style="color: var(--gold)"></i>
+              <h6 class="fw-bold">バス</h6>
+              <p class="text-secondary mb-0">
+                主要バス停から徒歩圏内。大阪市バスが頻繁に運行しています。
+              </p>
+            </div>
+          </div>
+
+          <!-- タクシー -->
+          <div class="col-md-6 col-lg-3">
+            <div class="bg-white p-4 rounded h-100" style="box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); border: 1px solid #ccc;">
+              <i class="fas fa-taxi fa mb-3" style="color: var(--gold)"></i>
+              <h6 class="fw-bold">タクシー</h6>
+              <p class="text-secondary mb-0">
+                市内各所からタクシー利用でスムーズに到着可能です。
+              </p>
+            </div>
+          </div>
+
+          <!-- 自家用車 -->
+          <div class="col-md-6 col-lg-3">
+            <div class="bg-white p-4 rounded h-100" style="box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); border: 1px solid #ccc;">
+              <i class="fas fa-car fa mb-3" style="color: var(--gold)"></i>
+              <h6 class="fw-bold">自家用車</h6>
+              <p class="text-secondary mb-0">
+                駐車場完備でマイカーでの来館も安心してご利用いただけます。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!------------------------------------------- Footer Section ------------------------------------------  -->
+    <footer class="bg-dark text-white pt-5 pb-4">
+      <div class="container">
+        <div class="row g-4">
+          <!-- Hotel Info -->
+          <div class="col-md-4">
+            <h5 class="fw-bold mb-3">Amaya Hotel Osaka</h5>
+            <p class="small">
+              〒530-0011 大阪府大阪市北区大深町4-20<br>
+              梅田駅より徒歩5分・関西国際空港から電車で40分
+            </p>
+            <p class="small mb-1"><i class="fa-solid fa-phone me-2"></i>+81-6-1234-5678</p>
+            <p class="small"><i class="fa-solid fa-envelope me-2"></i>info@amaya.osaka.jp</p>
+          </div>
+    
+          <!-- Quick Links -->
+          <div class="col-6 col-md-2">
+            <h6 class="fw-bold mb-3">クイックリンク</h6>
+            <ul class="list-unstyled small">
+              <li><a href="#about" class="text-white text-decoration-none ">ホテルについて</a></li>
+              <li><a href="#rooms" class="text-white text-decoration-none">宿泊プラン</a></li>
+              <li><a href="#dining" class="text-white text-decoration-none">レストラン</a></li>
+              <li><a href="#spa" class="text-white text-decoration-none">スパ＆ウェルネス</a></li>
+              <li><a href="#reserve" class="text-white text-decoration-none">予約</a></li>
+            </ul>
+          </div>
+    
+          <!-- Services -->
+          <div class="col-6 col-md-3">
+            <h6 class="fw-bold mb-3">施設・サービス</h6>
+            <ul class="list-unstyled small">
+              <li><a href="#" class="text-white text-decoration-none">プール</a></li>
+              <li><a href="#" class="text-white text-decoration-none">ロビー＆ラウンジ</a></li>
+              <li><a href="#" class="text-white text-decoration-none">ギフトショップ</a></li>
+              <li><a href="#" class="text-white text-decoration-none">駐車場</a></li>
+              <li><a href="#" class="text-white text-decoration-none">会議室・宴会場</a></li>
+            </ul>
+          </div>
+    
+          <!-- Newsletter & Social -->
+          <div class="col-md-3">
+            <h6 class="fw-bold mb-3">ニュースレター</h6>
+            <form>
+              <div class="input-group mb-3">
+                <input type="email" class="form-control form-control-sm" placeholder="メールアドレス" aria-label="Email">
+                <button class="btn btn-warning btn-sm" type="submit">登録</button>
+              </div>
+            </form>
+            <div class="d-flex gap-3 mt-4 ">
+              <a href="#" class="text-white fs-5"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#" class="text-white fs-5"><i class="fa-brands fa-twitter"></i></a>
+              <a href="#" class="text-white fs-5"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" class="text-white fs-5"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+    
+        <hr class="border-light mt-4" />
+    
+        <!-- Bottom bar -->
+        <div class="d-md-flex justify-content-between align-items-center small text-white mt-3">
+          <p class="mb-2 mb-md-0">&copy; 2025 Amaya Hotel Osaka. All Rights Reserved.</p>
+          <div>
+            <a href="#" class="text-white me-3 text-decoration-none">利用規約</a>
+            <a href="#" class="text-white text-decoration-none">プライバシーポリシー</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+    
+  </body>
+</html>
