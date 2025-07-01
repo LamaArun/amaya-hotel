@@ -2,6 +2,8 @@
 :root {
   --gold: #d3a43f;
   --btn-hover: #ebb134;
+  --dark: #333333;
+
 }
 
 .reservation-bar .form-group {
@@ -134,7 +136,7 @@
     transition: max-height 0.5s ease-in-out, margin-bottom 0.5s ease-in-out,
       padding 0.5s ease-in-out;
     margin-bottom: 0;
-    background-color: #f6f5f7;
+    background-color: var(--dark);
     border-radius: 1rem;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
   }
