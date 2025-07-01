@@ -115,8 +115,9 @@
   .reservation-bar {
     position: fixed; /* Always fixed on mobile */
     bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;  
+    right: 0;
+    margin: 0 auto;
     z-index: 10;
     width: 90%;
     max-width: 1000px;
