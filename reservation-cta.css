@@ -86,7 +86,7 @@
 .counter-buttons {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 60px;
   justify-content: stretch;
 }
 .counter-btn {
@@ -198,3 +198,4 @@
     align-items: stretch;
   }
 }
+
